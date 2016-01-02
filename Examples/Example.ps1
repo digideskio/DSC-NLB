@@ -3,61 +3,59 @@ configuration NLBConfig
     [CmdletBinding()]
     Param
     (
-        
+        [psCredential]
         $Credentials
     )
 
 Import-DscResource -ModuleName NLB
 
-    node $AllNodes.Where{$_.Role -eq "NLBServer"}.NodeName
+    node $AllNodes.Where{$_.Role -eq "NLBServer1"}.NodeName
     {
         NLBCreateCluster CreateNLB
         {
 
-        ClusterName = 'ClusterofSandwiches'
-        InterfaceName = 'Ethernet 2'
-        ClusterPrimaryIP = '192.168.0.230'
-        SubnetMask = '255.255.255.0'
-        OperationMode = 'Unicast'
+            ClusterName = 'ClusterofBugz'
+            InterfaceName = 'Load Balance'
+            ClusterPrimaryIP = '192.168.0.254'
+            SubnetMask = '255.255.255.0'
+            OperationMode = 'IgmpMultiCast'
                   
         }
+
         NLBAddNode AddDC1
         {
         
-        NewNodeName = 'DC1'
-        NewNodeInterface = 'Ethernet 2'
-        ClusterName = 'ClusterofSandwiches'
-        PsDscRunAsCredential = $Credentials
+            NewNodeName = 'DC1'
+            NewNodeInterface = 'Load Balance'
+            ClusterName = 'ClusterofBugz'
+            PsDscRunAsCredential = $Credentials
+            DependsOn = '[NLBCreateCluster]CreateNLB'
         
         }
 
-
-    }
-    node $AllNodes.Where{$_.Role -eq "WebServer"}.NodeName
-    {
-        NLBCreateCluster CreateNLB
+        NLBAddNode AddNLB1
         {
+        
 
-        ClusterName = 'ClusterofBacon'
-        InterfaceName = 'Ethernet'
-        ClusterPrimaryIP = '192.168.0.198'
-        SubnetMask = '255.255.255.0'
-        OperationMode = 'IgmpMultiCast'
-                  
+            NewNodeName = 'NLB1'
+            NewNodeInterface = 'Load Balance'
+            ClusterName = 'ClusterofBugz'
+            PsDscRunAsCredential = $Credentials
+            DependsOn = '[NLBAddNode]AddDC1'        
+
+
         }
-    
-    
+
     }
+
 }
 $ConfigurationData = @{
     AllNodes = @(
         
-        @{  NodeName = "NLB1"
-            Role = "NLBServer"
-         },
-         @{  NodeName = "DC1"
-            Role = "WebServer"
+        @{  NodeName = "NLB2"
+            Role = "NLBServer1"
          }
+
     )
 }
 NLBConfig -ConfigurationData $ConfigurationData -outputpath C:\DSC -Verbose -Credentials (Get-Credential -Message "Credentials are required for adding nodes to NLB CLusters")
