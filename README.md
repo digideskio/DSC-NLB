@@ -29,3 +29,8 @@ These DSC Resources allow you to create a new NLB and add nodes to it.
 * **NewNodeName**: Specifies the name of the new cluster node.
 * **ClusterName**: Specifies the name of the cluster in which the node is joining.
 
+
+### 1.0.0.0
+
+* Initial release with the following resources:
+    * NLBCreateCluster, NLBAddNode
