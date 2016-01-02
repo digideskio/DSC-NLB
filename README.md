@@ -105,4 +105,7 @@ $ConfigurationData = @{
 NLBConfig -ConfigurationData $ConfigurationData -outputpath C:\DSC -Verbose -Credentials (Get-Credential -Message "Credentials are required for adding nodes to NLB CLusters")
 Start-DscConfiguration C:\DSC -verbose -wait -force
 ```
+## Misc
 
+During the execution of this module you may see the below warning. This may occur when adding a node to a NLB Cluster.
+![Alt text](https://flynnbundy.files.wordpress.com/2016/01/nlb.png "Example")
