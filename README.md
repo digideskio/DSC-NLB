@@ -11,7 +11,7 @@ These DSC Resources allow you to create a new NLB and add nodes to it.
 ## Resources
 
 * **NLBCreateCluster** creates a new NLB Cluster
-* **NLBAddNode** adds a node to a NLB CLuster
+* **NLBAddNode** adds a node to a NLB Cluster
 
 ### **NLBCreateCluster**
 
