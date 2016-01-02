@@ -1,0 +1,8 @@
+
+[ClassVersion("1.0.0.0"), FriendlyName("NLBAddNode")]
+class NLBAddNode : OMI_BaseResource
+{
+    [Key] String NewNodeName;
+    [Key] String NewNodeInterface;
+    [Key] String ClusterName;
+};
