@@ -1,0 +1,13 @@
+
+[ClassVersion("1.0.0.0"), FriendlyName("NLBCreateCluster")]
+class NLBCreateCluster : OMI_BaseResource
+{
+    [Key] String ClusterName;
+    [Key] String ClusterPrimaryIP;
+    [Write] String DedicatedIP;
+    [Write] String DedicatedIPSubnetMask;
+    [Key] String InterfaceName;
+    [Write, ValueMap{"Unicast","IgmpMultiCast","Multicast"}, Values{"Unicast","IgmpMultiCast","Multicast"}] String OperationMode;
+    [Key] String SubnetMask;
+};
+
