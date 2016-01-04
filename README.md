@@ -6,7 +6,7 @@ The **NLB** DSC resources allow you to configure and manage Windows Network Load
 ## Description
 
 The **NLB** module contains the **NLBCreateCluster and NLBAddNode** DSC Resources.
-These DSC Resources allow you to create a new NLB and add nodes to it.
+These DSC Resources allow you to create a new Network Load Balancer and add nodes to it.
 
 ## Resources
 
