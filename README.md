@@ -5,13 +5,18 @@ The **NLB** DSC resources allow you to configure and manage Windows Network Load
 
 ## Description
 
-The **NLB** module contains the **NLBCreateCluster and NLBAddNode** DSC Resources.
-These DSC Resources allow you to create a new Network Load Balancer and add nodes to it.
+The **NLB** module contains the **NLBCreateCluster**, **NLBAddNode**, **NLBResumeNode**, , **NLBStartNode**, **NLBStopNode** and **NLBSuspendNode** DSC Resources.
+These DSC Resources allow you to create a new Network Load Balancer, Add nodes to it and perform various actions against nodes. 
+Please see the examples for things such as draining cluster and applying hotfixes.
 
 ## Resources
 
-* **NLBCreateCluster** creates a new NLB Cluster
-* **NLBAddNode** adds a node to a NLB Cluster
+* **NLBCreateCluster** Creates a new NLB Cluster.
+* **NLBAddNode** Adds a node to a NLB Cluster.
+* **NLBResumeNode** Resume an NLB Cluster Node.
+* **NLBStartNode** Start an NLB Cluster Node.
+* **NLBStopNode** Stop an NLB Cluster Node.
+* **NLBSuspendNode** Suspend an NLB CLuster Node.
 
 ### **NLBCreateCluster**
 
@@ -29,7 +34,29 @@ These DSC Resources allow you to create a new Network Load Balancer and add node
 * **NewNodeName**: Specifies the name of the new cluster node.
 * **ClusterName**: Specifies the name of the cluster in which the node is joining.
 
+### NLBResumeNode
+
+* **InterfaceName**: Specifies the name of the Interface in whcih you wish to resume.
+
+### NLBStartNode
+
+* **InterfaceName**: Specifies the name of the Interface in whcih you wish to start.
+
+### NLBStopNode
+
+* **InterfaceName**: Specifies the name of the Interface in whcih you wish to stop.
+* **Drain**: Specifies if you wish to drain stop the node.
+
+### NLBSuspendNode
+
+* **InterfaceName**: Specifies the name of the Interface in whcih you wish to suspend.
+
 ## Versions
+
+### 1.1.0.0
+
+* First update which includes:
+    * NLBStartNode,NLBStopNode,NLBResumeNode and NLBSuspendNode
 
 ### 1.0.0.0
 
