@@ -36,20 +36,20 @@ Please see the examples for things such as draining cluster and applying hotfixe
 
 ### NLBResumeNode
 
-* **InterfaceName**: Specifies the name of the Interface in whcih you wish to resume.
+* **InterfaceName**: Specifies the name of the Interface in which you wish to resume.
 
 ### NLBStartNode
 
-* **InterfaceName**: Specifies the name of the Interface in whcih you wish to start.
+* **InterfaceName**: Specifies the name of the Interface in which you wish to start.
 
 ### NLBStopNode
 
-* **InterfaceName**: Specifies the name of the Interface in whcih you wish to stop.
+* **InterfaceName**: Specifies the name of the Interface in which you wish to stop.
 * **Drain**: Specifies if you wish to drain stop the node.
 
 ### NLBSuspendNode
 
-* **InterfaceName**: Specifies the name of the Interface in whcih you wish to suspend.
+* **InterfaceName**: Specifies the name of the Interface in which you wish to suspend.
 
 ## Versions
 
