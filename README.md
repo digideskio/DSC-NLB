@@ -5,7 +5,7 @@ The **NLB** DSC resources allow you to configure and manage Windows Network Load
 
 ## Description
 
-The **NLB** module contains the **NLBCreateCluster**, **NLBAddNode**, **NLBResumeNode**, , **NLBStartNode**, **NLBStopNode** and **NLBSuspendNode** DSC Resources.
+The **NLB** module contains the **NLBCreateCluster**, **NLBAddNode**, **NLBResumeNode**, **NLBStartNode**, **NLBStopNode** and **NLBSuspendNode** DSC Resources.
 These DSC Resources allow you to create a new Network Load Balancer, Add nodes to it and perform various actions against nodes. 
 Please see the examples for things such as draining cluster and applying hotfixes, please note if you are working with windows updates and restarting nodes please make sure the LCM on your node is set to allow restarts.
 
