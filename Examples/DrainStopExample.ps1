@@ -14,18 +14,19 @@ Import-DscResource –ModuleName 'PSDesiredStateConfiguration'
             Drain = $True
         
         }
-        xMicrosoftUpdate Updates
+        xHotfix InstallHotfix
         {
 
-        DependsOn = '[NLBStopNode]StopNodeForUpdates'
-        Ensure = 'Present'
-                
+            DependsOn = '[NLBStopNode]StopNodeForUpdates'
+            Id = 'KB123456'
+            Ensure = 'Present'
+              
         }
         NLBStartNode StartNodeAfterUpdates
         {
         
-        DependsOn = '[xMicrosoftUpdate]Updates'
-        Interfacename = 'Load'
+            DependsOn = '[xMicrosoftUpdate]Updates'
+            Interfacename = 'Load'
               
         }
 
@@ -51,18 +52,19 @@ Import-DscResource –ModuleName 'PSDesiredStateConfiguration'
             DependsOn = '[WaitForAny]WaitforOtherNode'
         
         }
-        xMicrosoftUpdate Updates
+        xHotfix InstallHotfix
         {
 
-        DependsOn = '[NLBStopNode]StopNodeForUpdates'
-        Ensure = 'Absent'
-                
+            DependsOn = '[NLBStopNode]StopNodeForUpdates'
+            Id = 'KB123456'
+            Ensure = 'Present'
+              
         }
         NLBStartNode StartNodeAfterUpdates
         {
         
-        DependsOn = '[xMicrosoftUpdate]Updates'
-        Interfacename = 'Load'
+            DependsOn = '[xMicrosoftUpdate]Updates'
+            Interfacename = 'Load'
               
         }
 
